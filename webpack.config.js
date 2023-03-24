@@ -4,7 +4,7 @@ const webpack = require("webpack");
 
 module.exports = {
   //   entry: "./index.js", // 不写名字默认识 main
-  entry: { bundle: "./src/index.js" },
+  entry: { index: "./src/index.js", login: "./src/login.js" },
   mode: "development",
   output: {
     filename: ".js/[hash:5][name].js",
@@ -39,6 +39,12 @@ module.exports = {
     new htmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
+      chunks: ["index"],
+    }),
+    new htmlWebpackPlugin({
+      filename: "login.html",
+      template: "./src/login.html",
+      chunks: ["login"],
     }),
   ],
 };
