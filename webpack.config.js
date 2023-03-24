@@ -1,6 +1,7 @@
 const { resolve } = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
+const webpackDevServer = require("webpack-dev-server");
 
 module.exports = {
   //   entry: "./index.js", // 不写名字默认识 main
@@ -30,6 +31,14 @@ module.exports = {
         },
       },
     ],
+  },
+  devServer: {
+    static: {
+      directory: resolve(__dirname, "dist"),
+    },
+    compress: true,
+    port: "8000",
+    hot: true,
   },
   plugins: [
     new webpack.ProvidePlugin({
