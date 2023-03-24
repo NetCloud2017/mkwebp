@@ -31,8 +31,12 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
+    "@vue/compiler-sfc": "^3.2.47",
     "flexslider": "^2.7.2",
     "jquery": "^3.6.4",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "vue": "^3.2.47",
+    "vue-loader": "^17.0.1",
+    "vue-template-compiler": "^2.7.14"
   }
 }
