@@ -32,6 +32,7 @@
   "dependencies": {
     "-": "^0.0.1",
     "flexslider": "^2.7.2",
-    "jquery": "^3.6.4"
+    "jquery": "^3.6.4",
+    "lodash-es": "^4.17.21"
   }
 }
