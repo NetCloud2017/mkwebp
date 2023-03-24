@@ -17,6 +17,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
+        // miniCssextractPlugin.loader 剥离在js中的样式
         use: [miniCssextractPlugin.loader, "css-loader"],
       },
       {
@@ -43,6 +44,7 @@ module.exports = {
   },
   plugins: [
     new miniCssextractPlugin({
+      // 生成css 文件
       filename: "./css/[name].css",
       chunkFilename: "./css/chunck-[name].css",
     }),
