@@ -9,6 +9,17 @@ module.exports = {
     clean: true,
     path: resolve(__dirname, "dist"),
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|gif|svg|jpg|jpeg)$/,
+      },
+    ],
+  },
   plugins: [
     new htmlWebpackPlugin({
       filename: "home.html",
