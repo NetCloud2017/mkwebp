@@ -2,6 +2,8 @@ const { resolve } = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const copyWebpackPlugin = require("copy-webpack-plugin");
+const miniCssextractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   //   entry: "./index.js", // 不写名字默认识 main
   entry: { index: "./src/index.js", login: "./src/login.js" },
@@ -15,7 +17,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [miniCssextractPlugin.loader, "css-loader"],
       },
       {
         test: /\.(png|gif|svg|jpg|jpeg)$/i,
@@ -40,6 +42,10 @@ module.exports = {
     hot: true,
   },
   plugins: [
+    new miniCssextractPlugin({
+      filename: "./css/[name].css",
+      chunkFilename: "./css/chunck-[name].css",
+    }),
     new copyWebpackPlugin({
       patterns: [
         {
