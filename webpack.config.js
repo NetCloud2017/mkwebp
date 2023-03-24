@@ -3,7 +3,8 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const copyWebpackPlugin = require("copy-webpack-plugin");
 const miniCssextractPlugin = require("mini-css-extract-plugin");
-
+// const uglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");  // webpack  4 支持 webpack 5 不支持了；
+const terserWebpackPlugin = require("terser-webpack-plugin");
 module.exports = {
   //   entry: "./index.js", // 不写名字默认识 main
   entry: { index: "./src/index.js", login: "./src/login.js" },
@@ -32,6 +33,15 @@ module.exports = {
           filename: "image/[hash:6][name][ext]",
         },
       },
+    ],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      // new uglifyjsWebpackPlugin({
+      // sourceMap: true, //压缩的js 也支持 sourcemap
+      // }),
+      new terserWebpackPlugin(),
     ],
   },
   devServer: {
