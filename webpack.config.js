@@ -1,8 +1,7 @@
 const { resolve } = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
-const webpackDevServer = require("webpack-dev-server");
-
+const copyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   //   entry: "./index.js", // 不写名字默认识 main
   entry: { index: "./src/index.js", login: "./src/login.js" },
@@ -41,6 +40,14 @@ module.exports = {
     hot: true,
   },
   plugins: [
+    new copyWebpackPlugin({
+      patterns: [
+        {
+          from: resolve(__dirname, "src/img"),
+          to: resolve(__dirname, "dist/img"),
+        },
+      ],
+    }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
