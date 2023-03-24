@@ -13,7 +13,7 @@ module.exports = {
   output: {
     filename: ".js/[hash:5][name].js",
     clean: true,
-    path: resolve(__dirname, "dist/"),
+    path: resolve(__dirname, "../dist/"),
   },
   module: {
     rules: [
@@ -89,8 +89,8 @@ module.exports = {
     new copyWebpackPlugin({
       patterns: [
         {
-          from: resolve(__dirname, "src/img"),
-          to: resolve(__dirname, "dist/img"),
+          from: resolve(__dirname, "../src/img"),
+          to: resolve(__dirname, "../dist/img"),
         },
       ],
     }),
