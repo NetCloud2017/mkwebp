@@ -45,6 +45,25 @@ module.exports = {
       new terserWebpackPlugin(),
       new cssMinimazerPlugin(),
     ],
+    splitChunks: {
+      chunks: "all",
+      minSize: 30 * 1024, // 300 kb 以上的包就会分割
+      name: "common",
+      cacheGroups: {
+        // 单独对某个包打包
+        jquery: {
+          // 要打包的包
+          name: "jquery", // 打包成的名字 , output 的hash 对这里也有效 。 还有的就是 jquery 这个包的大小也要符合 miniSize 这个选项。
+          test: /jquery/, // 是 jauery.js 的文都打包
+          chunks: "all",
+        },
+        "lodash-es": {
+          name: "lodash-es",
+          test: /lodash-es/,
+          chunks: "all",
+        },
+      },
+    },
   },
   devServer: {
     static: {
