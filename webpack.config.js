@@ -34,6 +34,13 @@ module.exports = {
           filename: "image/[hash:6][name][ext]",
         },
       },
+      {
+        test: /\.ejs/,
+        loader: "ejs-loader",
+        options: {
+          esModule: false,
+        },
+      },
     ],
   },
   optimization: {
