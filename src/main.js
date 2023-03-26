@@ -1,5 +1,3 @@
-import Vue from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
-const app = new Vue({
-  template: App,
-}).mount("#app");
+const app = createApp(App).mount("#app");
