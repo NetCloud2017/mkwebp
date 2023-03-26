@@ -9,7 +9,7 @@
           </h1>
           <div class="fr clearfix" id="top1">
             <p class="fl">
-              <a href="#" id="login">登录</a>
+              <router-link to="/login">登录</router-link>
               <a href="#" id="reg">注册</a>
             </p>
             <form action="#" method="get" class="fl">
@@ -437,9 +437,10 @@ import "jquery";
 import "./js/public";
 import "./js/nav";
 import "./js/jquery.flexslider-min";
-
+import { useRouter } from "vue-router";
 export default {
   setup() {},
+  methods: {},
 };
 </script>
 
